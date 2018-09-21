@@ -1,9 +1,11 @@
 ---
 title: "Solutions to Problem 1 & 2"
+author: "Yizhi Ma"
+date: 2018-09-21
 output: github_document
 ---
 
-```{r load package}
+```{r, include = FALSE}
 library(tidyverse)
 ```
  
