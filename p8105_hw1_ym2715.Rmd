@@ -3,35 +3,26 @@ title: "Solutions to Problem 1 & 2"
 output: github_document
 ---
 
-```{load packages}
+```{r load package}
 library(tidyverse)
-library(knitr)
 ```
  
 
 # Problem 1
 
-```{Data Frame Setup 1}
-unif_sample = runif(10, min = 0, max = 5)
-
-logi_sample = unif_sample > 2
-
-chara_sample = as.character(logi_sample)
-
-factor_sample = factor(chara_sample)
-
-frame_sample = data.frame(unif_sample, logi_sample, chara_sample, factor_sample)
+```{r}
+prob1_df = tibble(
+  unif_sample = runif(10, min =0, max = 5),
+  logi_sample = unif_sample > 2,
+  chara_sample = as.character(logi_sample),
+  factor_sample = factor(chara_sample)
+)
 ```
 
-```{R}
-library(knitr)
-kable(frame_sample, caption = "Data Frame in Problem 1")
-
-```
 
 # Problem 2
 
-```{Data Frame Setup 2}
+```{r}
 prob2_df = tibble(
   x = rnorm(1000, sd = .5),
   y = rnorm(1000, sd = .5),    
