@@ -13,6 +13,7 @@ library(tidyverse)
 # Problem 1
 
 ```{r}
+## Set up the data frame for problem 1
 prob1_df = tibble(
   unif_sample = runif(10, min =0, max = 5),
   logi_sample = unif_sample > 2,
@@ -25,6 +26,7 @@ prob1_df = tibble(
 # Problem 2
 
 ```{r}
+## Set up the data fraame for problem 2
 prob2_df = tibble(
   x = rnorm(1000, sd = .5),
   y = rnorm(1000, sd = .5),    
@@ -32,7 +34,9 @@ prob2_df = tibble(
   vec_num = as.numeric(vec_logi),
   vec_factor = as.factor(vec_logi)
 )
+```
 
+```{r}
 ## Scatter plot of x and y, color using logical vector
 ggplot(prob2_df, aes(x = x, y = y, color = vec_logi)) + geom_point()
 
