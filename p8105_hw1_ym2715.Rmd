@@ -3,6 +3,10 @@ title: "Solutions to Problem 1 & 2"
 output: github_document
 ---
 
+```{load packages}
+library(tidyverse)
+library(knitr)
+```
  
 
 # Problem 1
@@ -12,14 +16,18 @@ unif_sample = runif(10, min = 0, max = 5)
 
 logi_sample = unif_sample > 2
 
-chara_sample = character(10)
+chara_sample = as.character(logi_sample)
 
-factor_data = c(1, 2, 3, 2, 3, 1, 3, 2, 1, 3)
-factor_sample = factor(factor_data)
+factor_sample = factor(chara_sample)
 
 frame_sample = data.frame(unif_sample, logi_sample, chara_sample, factor_sample)
 ```
 
+```{R}
+library(knitr)
+kable(frame_sample, caption = "Data Frame in Problem 1")
+
+```
 
 # Problem 2
 
@@ -31,5 +39,13 @@ prob2_df = tibble(
   vec_num = as.numeric(vec_logi),
   vec_factor = as.factor(vec_logi)
 )
-ggplot(prob2_df, aes(x = x, y = y)) + geom_point()
+
+## Scatter plot of x and y, color using logical vector
+ggplot(prob2_df, aes(x = x, y = y, color = vec_logi)) + geom_point()
+
+## Scatter plot of x and y, color using numerical vector
+ggplot(prob2_df, aes(x = x, y = y, color = vec_num)) + geom_point()
+
+## Scatter plot of x and y, color using factor vector
+ggplot(prob2_df, aes(x = x, y = y, color = vec_factor)) + geom_point()
 ```
